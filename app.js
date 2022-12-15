@@ -13,7 +13,7 @@ Vue.component("graphBar", {
             backgroundColor: [
               "hsl(10, 79%, 65%)",
               "hsl(10, 79%, 65%)",
-              "rgba(255, 206, 86, 0.6)",
+              "hsl(186, 34%, 60%)",
               "hsl(10, 79%, 65%)",
               "hsl(10, 79%, 65%)",
               "hsl(10, 79%, 65%)",
@@ -51,11 +51,11 @@ Vue.component("graphBar", {
 
           yAxes: [
             {
-                ticks: {
-                    beginAtZero: true
-                }
-            }
-        ]
+              ticks: {
+                beginAtZero: true
+              },
+            },
+          ],
 
         }
       }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses chart component</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body> 
+    <div class="component"> 
+      <header class="component__header"> 
+        <div class="header">
+          <div class="header__box">
+            <p class="header__title">My balance</p>
+            <p class="header__balance">$921.48</p>
+          </div><img class="header__image" src="./images/logo.svg" alt="logo">
+        </div>
+      </header>
+      <main class="component__main"> 
+        <div class="component__box"> 
+          <div class="box"> 
+            <h1 class="box__header">Spending - Last 7 days</h1>
+            <section class="section" id="app">
+              <graph-bar :labels="labels" :values="votes" type="bar"></graph-bar>
+            </section>
+          </div>
+        </div>
+        <footer class="component__footer">
+          <div class="footer"> 
+            <div class="footer__box"> 
+              <p class="footer__total">Total this month</p>
+              <p class="footer__value">$478.33</p>
+            </div>
+            <div class="footer__box">
+              <p class="footer__percents">+2.4%</p>
+              <p class="footer__caption">from last month</p>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+//- mixin spending(data)
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Expenses chart component
+    link(rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png")
+    link(rel="stylesheet", href="./style.css")
+  body 
+    .component 
+      header.component__header 
+        .header
+          .header__box
+            p.header__title My balance
+            p.header__balance $921.48
+          img.header__image(src="./images/logo.svg", alt="logo")
+      main.component__main 
+        .component__box 
+          .box 
+            h1.box__header Spending - Last 7 days
+            section#app.section
+              graph-bar(:labels="labels" :values="votes" type="bar")
+        footer.component__footer
+          .footer 
+            .footer__box 
+              p.footer__total Total this month
+              p.footer__value $478.33
+            .footer__box
+              p.footer__percents +2.4%
+              p.footer__caption from last month
+
+    script(src="https://cdn.jsdelivr.net/npm/chart.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js")
+    script(type="module" src="./app.js")

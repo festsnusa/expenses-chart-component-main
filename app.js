@@ -30,7 +30,30 @@ Vue.component("graphBar", {
         plugins: {
           legend: {
             display: false
+          },
+
+          tooltip: {
+            callbacks: {
+              label: function (context) {
+                let label = context.dataset.label || '';
+
+                if (label) {
+                  label += ': ';
+                }
+                if (context.parsed.y !== null) {
+                  label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
+                }
+                return label;
+              },
+              labelTextColor: function () {
+                return '#fffaf5'
+              },
+              title: function () {
+                return ''
+              }
+            }
           }
+
         },
         onHover: (event, chartElement) => {
           event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
@@ -44,19 +67,27 @@ Vue.component("graphBar", {
           }
         },
         scales: {
-
+          x: {
+            border: {
+              display: false
+            },
+            grid: {
+              display: false,
+              drawOnChartArea: true,
+              drawTicks: true
+            }
+          },
           y: {
             display: false,
-          },
-
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true
-              },
+            border: {
+              display: false
             },
-          ],
-
+            grid: {
+              display: false,
+              drawOnChartArea: true,
+              drawTicks: true
+            }
+          }
         }
       }
     });
